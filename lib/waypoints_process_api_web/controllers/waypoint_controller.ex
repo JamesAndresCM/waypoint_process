@@ -7,7 +7,7 @@ defmodule WaypointsProcessApiWeb.WaypointController do
   @spec index(Plug.Conn.t(), any) :: Plug.Conn.t()
   def index(conn, %{"driver_id" => driver_id} = params) do
     try do
-      waypoints = Waypoints.all_elements(driver_id) |> Repo.paginate(params)
+      waypoints = Waypoints.all(driver_id) |> Repo.paginate(params)
       render(conn, "index.json", waypoint: waypoints)
     rescue
       _ ->

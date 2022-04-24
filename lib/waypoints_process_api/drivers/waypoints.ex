@@ -4,7 +4,7 @@ defmodule WaypointsProcessApi.Drivers.Waypoints do
   alias WaypointsProcessApi.Drivers.Waypoint
   import WaypointsProcessApi.Utils.ParseWaypointParams, only: [parse_params: 2]
 
-  def all_elements(driver_id) do
+  def all(driver_id) do
     from(waypoint in Waypoint, where: waypoint.driver_id == ^driver_id, order_by: [asc: waypoint.created_at], preload: [:driver])
   end
 
