@@ -11,7 +11,7 @@ defmodule WaypointsProcessApiWeb.WaypointView do
                       total_entries: waypoint.total_entries
                     }
                  end
-    %{data: render_many(waypoint, WaypointView, "waypoint.json"), links: meta_data}
+    %{data: render_many(waypoint, WaypointView, "waypoint.json"), meta: meta_data}
   end
 
   def render("show.json", %{waypoint: waypoint}) do
